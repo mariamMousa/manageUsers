@@ -1,0 +1,31 @@
+<mat-toolbar color="primary"><span>Form User</span></mat-toolbar>
+<form [formGroup]="userForm" (ngSubmit)="saveUser()">
+    <mat-card>
+        <mat-card-content>
+            <mat-form-field class="mat-50">
+                <mat-label>First Name</mat-label>
+                <input matInput formControlName="firstName">
+            </mat-form-field>
+            <mat-form-field class="mat-50">
+                <mat-label>Last Name</mat-label>
+                <input matInput formControlName="lastName">
+            </mat-form-field>
+            <mat-form-field class="mat-50">
+                <mat-label>Date of Birth</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="birthdate">
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-hint>dd/MM/yyyy</mat-hint>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <div>
+                <mat-checkbox formControlName="isActive">IsActive</mat-checkbox>
+            </div>
+        </mat-card-content>
+        <mat-card-footer>
+            <div style="margin: 2%; text-align: right;">
+                <button mat-raised-button type="submit" color="primary">Save</button>
+                <button mat-raised-button color="warn" (click)="resetForm()">Clear</button>
+            </div>
+        </mat-card-footer>
+    </mat-card>
+</form>
